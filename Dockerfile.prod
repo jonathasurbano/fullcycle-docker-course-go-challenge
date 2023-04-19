@@ -8,8 +8,6 @@ WORKDIR /app
 
 RUN go build ./src/fullcycle/main.go
 
-CMD [ "/app/main" ]
-
 FROM scratch
 
 WORKDIR /
