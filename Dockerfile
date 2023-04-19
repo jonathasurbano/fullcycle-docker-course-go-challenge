@@ -1,5 +1,11 @@
-FROM scratch
+FROM golang:1.20.3-alpine AS builder
 
-COPY  go/src/fullcycle/main /
+RUN mkdir /app
 
-CMD [ "/main" ]
+COPY  go /app
+
+WORKDIR /app
+
+RUN go build ./src/fullcycle/main.go
+
+CMD [ "/app/main" ]
